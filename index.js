@@ -26,7 +26,7 @@ app.use(auth)
 app.use("/marvel",marvelRouter)
 
 
-app.listen(process.env.PORT, async ()=>{
+app.listen(8080, async ()=>{
     try{
         await connection
         console.log("Connected to Mongo DB")
