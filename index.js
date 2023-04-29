@@ -10,7 +10,6 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-
 app.use("/user",userRouter)
 
 app.get("/marvel",async (req,res)=>{
@@ -26,15 +25,16 @@ app.use(auth)
 app.use("/marvel",marvelRouter)
 
 
-app.listen(8080, async ()=>{
+app.listen(process.env.PORT, async ()=>{
     try{
         await connection
         console.log("Connected to Mongo DB")
     }catch(err){
         console.log(err)
     }
-    console.log("server is running")
+    console.log(`server is running ${process.env.PORT} `)
 })
+
 
 
 // {
